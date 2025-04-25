@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: m-gpt-api
+    env: python
+    # Render will run these before installing requirements.txt
+    buildCommand: |
+      pip install --upgrade pip
+      # Install a CPU-only PyTorch wheel from the official index
+      pip install torch==2.0.1+cpu torchvision==0.15.2+cpu --find-links https://download.pytorch.org/whl/cpu
+      # Now install everything else
+      pip install --no-cache-dir -r requirements.txt
+    startCommand: uvicorn m-gpt:app --host 0.0.0.0 --port $PORT
