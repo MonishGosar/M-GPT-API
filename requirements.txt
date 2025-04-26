@@ -1,8 +1,10 @@
 fastapi
-uvicorn[standard]
-sentence-transformers
+uvicorn
+python-dotenv
+numpy
 faiss-cpu
+sentence-transformers
+langchain
 PyPDF2
 google-generativeai
-python-dotenv
-langchain
+pydantic
